@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnail Generator</title>
+    <link rel="shortcut icon" href="code/img/HSR-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/thumbnail-generator.css">
+    <script src="../js/thumbnail-generator.js" defer></script>
+</head>
+<body>
+    <div class="body-filter">
+        <header>
+            <h1 class="header">
+                Honkai: Star Rail Thumbnail Generator<br>
+                <small>Memory of Chaos & Pure Fiction</small>
+            </h1>
+        </header>
+        <br>
+        <main>
+            <h2 class="input-header" id="game-mode">Game Mode</h2>
+            <input type="radio" name="game-mode" id="memory-of-chaos" class="input radio">
+            <label for="memory-of-chaos">Memory of Chaos</label>
+            <br>
+            <input type="radio" name="game-mode" id="pure-fiction" class="input radio">
+            <label for="pure-fiction">Pure Fiction</label>
+            <br><br>
+            <h2 class="input-header">Title</h2>
+            <label for="title">Enter title:</label>
+            <input type="text" name="title" id="title" class="input title">
+            <br><br>
+            <h2 class="input-header">Background Image</h2>
+            <label for="image" id="drop-area" class="drop-area">
+                <input type="file" name="image" id="image" class="input image" hidden>
+                <span class="image-placeholder" id="image-placeholder">+</span>
+            </label>
+            <canvas class="canvas" id="canvas" hidden></canvas>
+            <a id="canvas-download" href="#" download hidden></a>
+        </main>
+    </div>
+</body>
+</html>
