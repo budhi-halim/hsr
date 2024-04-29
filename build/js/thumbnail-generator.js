@@ -7,10 +7,12 @@ const dropArea = document.getElementById('drop-area');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const canvasDownload = document.getElementById('canvas-download');
+// Fonts
+const DIN = new FontFace('DIN Bold', 'url(../font/DIN/DIN-Bold.ttf)');
 // Variables
 const fontSize = 180;
 const margin = 32;
-const letterSpacing = -5;
+const letterSpacing = -10;
 // Default Input Values
 let gameMode = null;
 let title = '';
@@ -50,7 +52,7 @@ function drawText() {
     const leftMargin = margin;
     const bottomMargin = 2 * margin;
     ctx.fillStyle = 'white';
-    ctx.font = `bold ${fontSize}px Segoe UI`;
+    ctx.font = `bold ${fontSize}px DIN Bold`;
     ctx.letterSpacing = `${letterSpacing}px`;
     ctx.lineWidth = 5;
     ctx.strokeStyle = 'black';
@@ -83,11 +85,14 @@ function renderImage() {
         canvas.height = image.height;
         ctx.drawImage(image, 0, 0);
         ctx.drawImage(logo, canvas.width - (logo.width + margin), margin);
-        drawText();
-        downloadImage();
+        DIN.load().then(function () {
+            document.fonts.add(DIN);
+            drawText();
+            downloadImage();
+        });
     });
     image.src = URL.createObjectURL(imageInput.files[0]);
-    logo.src = 'code/img/HSR-logo.png';
+    logo.src = '../img/HSR-logo.png';
 }
 ;
 // Event Listeners
