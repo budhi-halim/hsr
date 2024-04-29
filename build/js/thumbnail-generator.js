@@ -12,7 +12,7 @@ const DIN = new FontFace('DIN Bold', 'url(../font/DIN/DIN-Bold.ttf)');
 // Variables
 const fontSize = 180;
 const margin = 32;
-const letterSpacing = -10;
+const letterSpacing = -4;
 // Default Input Values
 let gameMode = null;
 let title = '';
