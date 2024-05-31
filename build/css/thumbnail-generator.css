@@ -35,12 +35,32 @@ main {
     line-height: 1.5;
 }
 
-.title {
+.option-container {
+    align-items: center;
+    border-bottom: 1px solid honeydew;
+    column-gap: 10px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 10ch 10ch;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.option {
+    align-items: center;
+    border-radius: 50lh;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+}
+
+.textbox {
     background-color: transparent;
     border-radius: 5px;
     border: 2px solid honeydew;
     color: inherit;
     font: inherit;
+    margin-bottom: 0.2lh;
     transition-duration: 150ms;
     width: 30ch;
 }
@@ -63,7 +83,7 @@ input:-webkit-autofill {
     width: 150px;
 }
 
-.title:hover,
+.textbox:hover,
 .drop-area:hover,
 .drag-active {
     background-color: rgba(240, 255, 240, 0.1);

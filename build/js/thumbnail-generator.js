@@ -7,6 +7,10 @@ const dropArea = document.getElementById('drop-area');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const canvasDownload = document.getElementById('canvas-download');
+const templateButton = document.getElementById('template-button');
+const customButton = document.getElementById('custom-button');
+const templateSection = document.getElementById('template');
+const customSection = document.getElementById('custom');
 // Fonts
 const DIN = new FontFace('DIN Bold', 'url(../font/DIN/DIN-Bold.ttf)');
 // Variables
@@ -20,7 +24,8 @@ let image = null;
 ;
 const gameModeDict = {
     'memory-of-chaos': ['Memory of Chaos', '36 Stars'],
-    'pure-fiction': ['Pure Fiction', '12 Stars']
+    'pure-fiction': ['Pure Fiction', '12 Stars'],
+    'apocalyptic-shadow': ['Apocalyptic Shadow', '36 Stars']
 };
 // Functions
 function getTexts() {
@@ -48,7 +53,24 @@ function inactive() {
 }
 ;
 function drawText() {
-    getTexts();
+    let line1 = '';
+    let line2 = '';
+    let line3 = '';
+    if (state === 'template') {
+        getTexts();
+        line1 = gameMode[1];
+        line2 = gameMode[0];
+        line3 = title;
+    }
+    else {
+        const line1Input = document.getElementById('line-1');
+        const line2Input = document.getElementById('line-2');
+        const line3Input = document.getElementById('line-3');
+        line1 = line1Input.value;
+        line2 = line2Input.value;
+        line3 = line3Input.value;
+    }
+    ;
     const leftMargin = margin;
     const bottomMargin = 2 * margin;
     ctx.fillStyle = 'white';
@@ -56,12 +78,12 @@ function drawText() {
     ctx.letterSpacing = `${letterSpacing}px`;
     ctx.lineWidth = 5;
     ctx.strokeStyle = 'black';
-    ctx.fillText(gameMode[1], leftMargin, canvas.height - (bottomMargin + fontSize * 2));
-    ctx.fillText(gameMode[0], leftMargin, canvas.height - (bottomMargin + fontSize));
-    ctx.fillText(title, leftMargin, canvas.height - bottomMargin);
-    ctx.strokeText(gameMode[1], leftMargin, canvas.height - (bottomMargin + fontSize * 2));
-    ctx.strokeText(gameMode[0], leftMargin, canvas.height - (bottomMargin + fontSize));
-    ctx.strokeText(title, leftMargin, canvas.height - bottomMargin);
+    ctx.fillText(line1, leftMargin, canvas.height - (bottomMargin + fontSize * 2));
+    ctx.fillText(line2, leftMargin, canvas.height - (bottomMargin + fontSize));
+    ctx.fillText(line3, leftMargin, canvas.height - bottomMargin);
+    ctx.strokeText(line1, leftMargin, canvas.height - (bottomMargin + fontSize * 2));
+    ctx.strokeText(line2, leftMargin, canvas.height - (bottomMargin + fontSize));
+    ctx.strokeText(line3, leftMargin, canvas.height - bottomMargin);
 }
 ;
 function downloadImage() {
@@ -76,7 +98,7 @@ function renderImage() {
     image = new Image();
     const logo = new Image();
     image.addEventListener('load', function () {
-        if (gameMode === null || title === '') {
+        if (state === 'template' && gameMode === null || state === 'template' && title === '') {
             alert('Error: Game Mode and Title cannot be empty.');
             return;
         }
@@ -116,3 +138,17 @@ imageInput.addEventListener('change', function () {
     renderImage();
     imageInput.value = '';
 });
+templateButton.addEventListener('click', function () {
+    templateSection.removeAttribute('hidden');
+    customSection.setAttribute('hidden', 'true');
+    state = 'template';
+});
+customButton.addEventListener('click', function () {
+    customSection.removeAttribute('hidden');
+    templateSection.setAttribute('hidden', 'true');
+    state = 'custom';
+});
+// Initialize App
+templateSection.removeAttribute('hidden');
+customSection.setAttribute('hidden', 'true');
+let state = 'template';

@@ -18,18 +18,52 @@
         </header>
         <br>
         <main>
-            <h2 class="input-header" id="game-mode">Game Mode</h2>
-            <input type="radio" name="game-mode" id="memory-of-chaos" class="input radio">
-            <label for="memory-of-chaos">Memory of Chaos</label>
+            <section class="option-container">
+                <div class="option" id="template-button">Template</div>
+                <div class="option" id="custom-button">Custom</div>
+            </section>
+
+            <section id="template">
+                <h2 class="input-header" id="game-mode">Game Mode</h2>
+    
+                <input type="radio" name="game-mode" id="memory-of-chaos" class="input radio">
+                <label for="memory-of-chaos">Memory of Chaos</label>
+                <br>
+    
+                <input type="radio" name="game-mode" id="pure-fiction" class="input radio">
+                <label for="pure-fiction">Pure Fiction</label>
+                <br>
+    
+                <input type="radio" name="game-mode" id="apocalyptic-shadow" class="input radio">
+                <label for="apocalyptic-shadow">Apocalyptic Shadow</label>
+                <br><br>
+    
+                <h2 class="input-header">Title</h2>
+    
+                <label for="title">Enter title:</label>
+                <input type="text" name="title" id="title" class="input textbox">
+                <br>
+            </section>
+
+            <section id="custom">
+                <h2 class="input-header">Text</h2>
+
+                <label for="line-1">Line 1:</label>
+                <input type="text" name="line-1" id="line-1" class="input textbox">
+                <br>
+                
+                <label for="line-2">Line 2:</label>
+                <input type="text" name="line-2" id="line-2" class="input textbox">
+                <br>
+                
+                <label for="line-3">Line 3:</label>
+                <input type="text" name="line-3" id="line-3" class="input textbox">
+                <br>
+            </section>
+
             <br>
-            <input type="radio" name="game-mode" id="pure-fiction" class="input radio">
-            <label for="pure-fiction">Pure Fiction</label>
-            <br><br>
-            <h2 class="input-header">Title</h2>
-            <label for="title">Enter title:</label>
-            <input type="text" name="title" id="title" class="input title">
-            <br><br>
             <h2 class="input-header">Background Image</h2>
+
             <label for="image" id="drop-area" class="drop-area">
                 <input type="file" name="image" id="image" class="input image" hidden>
                 <span class="image-placeholder" id="image-placeholder">+</span>
