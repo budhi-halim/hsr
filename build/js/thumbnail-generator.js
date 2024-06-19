@@ -25,7 +25,7 @@ let image = null;
 const gameModeDict = {
     'memory-of-chaos': ['Memory of Chaos', '36 Stars'],
     'pure-fiction': ['Pure Fiction', '12 Stars'],
-    'apocalyptic-shadow': ['Apocalyptic Shadow', '36 Stars']
+    'apocalyptic-shadow': ['Apocalyptic Shadow', '12 Stars']
 };
 // Functions
 function getTexts() {
